@@ -1,0 +1,99 @@
+rails g model Group title:string
+rails g model Theme title:string group_id:integer posts_count:integer topics_count:integer last_post:json  
+rails g model Topic title:string content:text user_id:integer group_id:integer theme_id:integer last_post:json posts_count:integer 
+rails g model Post  title:string content:text user_id:integer topic_id_integer delta:boolean 
+
+
+rails g model Post body:string
+
+
+
+
+
+avatars
+
+body:sting
+created_at:datetime
+updated_at:datetime
+
+groups+
+
+title:string
+created_at:datetime
+updated_at:datetime
+
+posts
+
+title:string
+content:text
+user_id:integer
+topic_id_integer
+delta:boolean
+created_id:datetime
+updeated_id:datetime
+
+
+
+posts - theme_id -- > index_posts_on_theme_id
+posts - topic_id -- > index_posts_on_topic_id
+posts - user_id -- > index_posts_on_user_id
+
+themes +
+
+
+title :string  
+group_id :integer 
+posts_count:integer 
+topics_count:integer 
+last_post:json    
+created_at:datetime
+updated_at:datetime
+
+ hemes - group_id" -- > index_themes_on_group_id
+
+
+topics
+
+
+title:string  
+content: text    
+user_id: integer 
+group_id: integer 
+theme_id: integer 
+last_post : json    
+posts_count : integer 
+created_at : datetime
+updated_at : datetime
+
+ topics - group_id - index_topics_on_group_id
+ topics - theme_id - index_topics_on_theme_id
+ topics - user_id - index_topics_on_user_id 
+
+
+
+users
+  email:string   
+  encrypted_password:string   
+  reset_password_token:string   
+  reset_password_sent_at:datetime 
+  remember_created_at:datetime 
+  sign_in_count:integer  
+  current_sign_in_at:datetime 
+  last_sign_in_at:datetime 
+  current_sign_in_ip:string   
+  last_sign_in_ip:string   
+  name:string   
+  avatar_id:integer  
+  avatar_url:string   
+  banned:boolean  
+  rating:integer  
+  votes: integer  
+  posts_count:integer  
+  role:string   
+created_at:datetime
+updated_at:datetime
+
+
+ users - email - ndex_users_on_email 
+ users - reset_password_token - ndex_users_on_reset_password_token 
+

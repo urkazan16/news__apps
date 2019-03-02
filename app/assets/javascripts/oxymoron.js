@@ -115,6 +115,108 @@ angular.module("oxymoron.config.states", [])
           }
         })
       
+        .state('new_user_session_path', {
+          url: '/users/sign_in',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['new_user_session_path'](params);
+          },
+          controller: 'DeviseSessionsCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('new', $stateParams)
+            }]
+          }
+        })
+      
+        .state('new_user_password_path', {
+          url: '/users/password/new',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['new_user_password_path'](params);
+          },
+          controller: 'DevisePasswordsCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('new', $stateParams)
+            }]
+          }
+        })
+      
+        .state('edit_user_password_path', {
+          url: '/users/password/edit',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['edit_user_password_path'](params);
+          },
+          controller: 'DevisePasswordsCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('edit', $stateParams)
+            }]
+          }
+        })
+      
+        .state('cancel_user_registration_path', {
+          url: '/users/cancel',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['cancel_user_registration_path'](params);
+          },
+          controller: 'DeviseRegistrationsCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('cancel', $stateParams)
+            }]
+          }
+        })
+      
+        .state('new_user_registration_path', {
+          url: '/users/sign_up',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['new_user_registration_path'](params);
+          },
+          controller: 'DeviseRegistrationsCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('new', $stateParams)
+            }]
+          }
+        })
+      
+        .state('edit_user_registration_path', {
+          url: '/users/edit',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['edit_user_registration_path'](params);
+          },
+          controller: 'DeviseRegistrationsCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('edit', $stateParams)
+            }]
+          }
+        })
+      
         .state('rails_service_blob_path', {
           url: '/rails/active_storage/blobs/:signed_id/*filename',
           
@@ -568,7 +670,7 @@ angular.module("oxymoron.directives", ['oxymoron.directives.fileupload', 'oxymor
 (function () {
   var Routes = function () {
     var self = this,
-        routes = {"rails_info_properties":{"defaults":{},"path":"/rails/info/properties"},"rails_info_routes":{"defaults":{},"path":"/rails/info/routes"},"rails_info":{"defaults":{},"path":"/rails/info"},"rails_mailers":{"defaults":{},"path":"/rails/mailers"},"rails_service_blob":{"defaults":{},"path":"/rails/active_storage/blobs/:signed_id/*filename"},"rails_blob_representation":{"defaults":{},"path":"/rails/active_storage/representations/:signed_blob_id/:variation_key/*filename"},"rails_disk_service":{"defaults":{},"path":"/rails/active_storage/disk/:encoded_key/*filename"},"update_rails_disk_service":{"defaults":{},"path":"/rails/active_storage/disk/:encoded_token"},"rails_direct_uploads":{"defaults":{},"path":"/rails/active_storage/direct_uploads"}};
+        routes = {"rails_info_properties":{"defaults":{},"path":"/rails/info/properties"},"rails_info_routes":{"defaults":{},"path":"/rails/info/routes"},"rails_info":{"defaults":{},"path":"/rails/info"},"rails_mailers":{"defaults":{},"path":"/rails/mailers"},"new_user_session":{"defaults":{},"path":"/users/sign_in"},"user_session":{"defaults":{},"path":"/users/sign_in"},"destroy_user_session":{"defaults":{},"path":"/users/sign_out"},"new_user_password":{"defaults":{},"path":"/users/password/new"},"edit_user_password":{"defaults":{},"path":"/users/password/edit"},"user_password":{"defaults":{},"path":"/users/password"},"cancel_user_registration":{"defaults":{},"path":"/users/cancel"},"new_user_registration":{"defaults":{},"path":"/users/sign_up"},"edit_user_registration":{"defaults":{},"path":"/users/edit"},"user_registration":{"defaults":{},"path":"/users"},"rails_service_blob":{"defaults":{},"path":"/rails/active_storage/blobs/:signed_id/*filename"},"rails_blob_representation":{"defaults":{},"path":"/rails/active_storage/representations/:signed_blob_id/:variation_key/*filename"},"rails_disk_service":{"defaults":{},"path":"/rails/active_storage/disk/:encoded_key/*filename"},"update_rails_disk_service":{"defaults":{},"path":"/rails/active_storage/disk/:encoded_token"},"rails_direct_uploads":{"defaults":{},"path":"/rails/active_storage/direct_uploads"}};
 
     self.defaultParams = {}
 
